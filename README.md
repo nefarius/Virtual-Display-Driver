@@ -1,52 +1,67 @@
-# Virtual Display Driver
-based on Microsoft Indirect Display Driver Sample. This creates a virtual display in Windows that acts and functions just like a real one. It's useful for streaming, virtual reality applications, recording, headless servers, etc. The benefit over a physical display is the ability to adjust resolutions and refresh rates beyond the physical displays capabilities. For example, this would enable the ability to stream a game from your home PC using game streaming software at 240hz at 8K while owning a 60hz 1080p monitor (unrealistic, but explains the abilities well). For servers without displays, this enabled remote desktop and screen streaming to other systems as if there were a display installed. 
+<p align="center">
+  <h1 align="center">Virtual Display Driver</h1>
+  <p align="center">
+    Add virtual monitors to your windows 10/11 device!
+    <br />
+    Works with VR, OBS, Sunshine, and/or any desktop sharing software.
+    <br />
+    Now with an easy to follow setup wizard!
+  </p>
+</p>
 
-Supports emulating resolutions from **640 x 480** to **7680 x 4320 (8K)**, and refresh rates including **60hz, 75hz, 90hz, 120hz, 144hz, 165hz, 240hz, 480hz,** and **500hz.**
+<br>
 
-This project uses the official Windows Indirect Display Driver combined with the IddCx class extension driver.
+## ℹ About
 
-## Download Stable Version
+This project is based on the "Virtual Display Driver" project and tries to improve on it.
 
-- [Windows 10 and 11 (no HDR)](https://github.com/itsmikethetech/Virtual-Display-Driver/releases/tag/23.10.20.2)
-- [Windows 11 23H2+ (HDR)](https://github.com/itsmikethetech/Virtual-Display-Driver/releases/tag/23.12.2HDR)
+> based on Microsoft Indirect Display Driver Sample. This creates a virtual display in Windows that acts and functions just like a real one. It's useful for streaming, virtual reality applications, recording, headless servers, etc. The benefit over a physical display is the ability to adjust resolutions and refresh rates beyond the physical displays capabilities. For example, this would enable the ability to stream a game from your home PC using game streaming software at 240hz at 8K while owning a 60hz 1080p monitor (unrealistic, but explains the abilities well). For servers without displays, this enabled remote desktop and screen streaming to other systems as if there were a display installed. 
 
-## Download Beta
-- [Windows 11 23H2+ (HDR)](https://github.com/itsmikethetech/Virtual-Display-Driver/releases/tag/24.7.18HDR) - Adds support for manual GPU switching.
-- Source available now for personal builds. Thanks to Sajidur78 for the PR.
+> Supports emulating resolutions from **640 x 480** to **7680 x 4320 (8K)**, and refresh rates including **60hz, 75hz, 90hz, 120hz, 144hz, 165hz, 240hz, 480hz,** and **500hz.**
 
-## Upcoming Betas
-- Windows 10 and 11 (no HDR) - Coming Soon, adds support for manual GPU switching.
-- Windows 10 and 11 HDR Combination Driver - Adds support for both Windows 10 and 11 in a single driver. (No HDR on Windows 10 still.)
- 
-## Installation
+> This project uses the official Windows Indirect Display Driver combined with the IddCx class extension driver.
 
-1. Download the latest version from the releases page, and extract the contents to a folder.
-2. Copy `option.txt` to `C:\IddSampleDriver\option.txt` before installing the driver **(important!)**.
-3. Right click and run the *.bat file **as an Administrator** to add the driver certificate as a trusted root certificate.
-4. Don't install the inf. Open device manager, click on any device, then click on the "Action" menu and click "Add Legacy Hardware".
-5. Select "Add hardware from a list (Advanced)" and then select Display adapters
-6. Click "Have Disk..." and click the "Browse..." button. Navigate to the extracted files and select the inf file.
-7. You are done! Go to display settings to customize the resolution of the additional displays. These displays show up in Sunshine, your Oculus or VR settings, and should be able to be streamed from.
-8. You can enable/disable the display adapter to toggle the monitors.
+This project adds an eays to follow setup wizard and installer to install your Virtual Display. The setup wizard also lets you specify how many displays do you want to add to your system without having to change any config file yourself.
+  
+I hope you enjoy this project and if you do i would appreciate a star rating :-)
 
-Ps. Make sure that options.txt is accesible for the system at `C:\IddSampleDriver\option.txt` or the installation will fail.
 
-## Uninstalling
+## Prerequisites:
 
-1. Open device manager
-2. Locate Display Adapters
-3. Right click on IddSampleDriver, choose "Uninstall device"
-4. There is a new popup window, in there click Attempt to remove driver for this device.
+* Version without HDR: Windows 10 and Windows 11
+* Version with HDR: Windows 11 23H2+ (HDR)
 
-Next instructions are for those cases where the device is removed from the system, but driver stil remains. This happens when there is a connection to the device while trying to remove the drivers. To
-remedy this, there is a a few tricks built into windows. So here goes:
 
-5. Open up a powershell terminal and input this:
-6.  ```pnputil /enum-drivers```
-6. Locate iddsampledriver.inf, there might be multiple pages of text. Make a note of the "published name", it's often unique for your system, but might look like "oem139.inf"
-7.  ```pnputil /delete-driver oem139.inf```
+## Steps to get it running:
 
-## HDR Support Now Available for Windows 11 22H2+ 
+1. Download the latest release and follow the instructions of the Setup Wizard.
+
+That's all you have to do! A Virtual Display should be added to your system!
+
+## Acknowledgements
+
+- Huge shootout to the project [nefcon](https://github.com/nefarius/nefcon by nefarius and his contributors.
+Without this project this unattended installer would not have been possible!  
+Please check it out aswell.
+
+
+## Acknowledgements of the original repo:
+
+- Shoutout to **Roshkins** for the original repo:
+https://github.com/roshkins/IddSampleDriver
+
+- Shoutout to **Baloukj** for the 8-bit / 10-bit support. (Also, first to push the new Microsoft Driver public!)
+https://github.com/baloukj/IddSampleDriver
+
+- Shoutout to **Anakngtokwa** for assisting with finding driver sources.
+
+- **Microsoft** Indirect Display Driver/Sample (Driver code): 
+https://github.com/microsoft/Windows-driver-samples/tree/master/video/IndirectDisplay
+
+- Thanks to **AKATrevorJay** https://github.com/akatrevorjay/edid-generator for the hi-res EDID.
+
+- Shoutout to **zjoasan** and **Bud** for the helper scripts and build support!
+
 
 ### Resolutions:
 
@@ -126,67 +141,3 @@ remedy this, there is a a few tricks built into windows. So here goes:
     240Hz
     480Hz
     500Hz
-
-### Videos
-
-[![thumbnail2023](https://github.com/itsmikethetech/Virtual-Display-Driver/assets/25166211/1a64c390-5d8a-420f-8bb9-4642349fc132)](https://youtu.be/nNWpbRUPkn4 "How to install a virtual display")
-
-[Previous Video: How to install a virtual display](https://youtu.be/byfBWDnToYk "How to install a virtual display")
-
-### Screenshots:
-
-![image](https://github.com/itsmikethetech/Virtual-Display-Driver/assets/25166211/0f1dfed6-c9ac-4cb6-92cf-7d9ab2ac0c66)
-
-![image](https://github.com/itsmikethetech/Virtual-Display-Driver/assets/25166211/5cb8ce08-890f-4bc1-a1a6-34f22e103699)
-
-![image](https://github.com/itsmikethetech/Virtual-Display-Driver/assets/25166211/02af86f2-b896-4265-9174-b17c9a1aeab7)
-
-
-## Background reading ##
-
-Start at the [Indirect Display Driver Model Overview](https://msdn.microsoft.com/en-us/library/windows/hardware/mt761968(v=vs.85).aspx) on MSDN.
-
-### Code structure ###
-
-The sample driver code is very simplistic and does nothing more than enumerate a single monitor when its device enters the D0/started power state. The IDD runs in Session 0 without any components running in the user session, so any driver instability will not affect the stability of the system as a whole. The IDD is a user-mode only model with no support for kernel-mode components. As such, the driver is able to use any DirectX APIs in order to process the desktop image. In fact, the IddCx provides the desktop image to encode in a DirectX surface.
-
-* `Direct3DDevice` class
-    * Contains logic for enumerating the correct render GPU from DXGI and creating a D3D device.
-    * Manages the lifetime of a DXGI factory and a D3D device created for the render GPU the system is using to render frames for your indirect display device's swap-chain.
-* `SwapChainProcessor` class
-    * Processes frames for a swap-chain assigned to the monitor object on a dedicated thread.
-    * The sample code does nothing with the frames, but demonstrates a correct processing loop with error handling and notifying the OS of frame completion.
-* `IndirectDeviceContext` class
-    * Processes device callbacks from IddCx.
-    * Manages the creation and arrival of the sample monitor.
-    * Handles swap-chain arrival and departure by creating a `Direct3DDevice` and handing it off to a `SwapChainProcessor`.
-
-## License
-
-MIT and CC0 or Public Domain (for changes I made, please consult Microsoft for their license), choose the least restrictive option.
-
-## Disclaimer:
-
-This software is provided "AS IS" with NO IMPLICIT OR EXPLICIT warranty. It's worth noting that while this software functioned without issues on my system, there is no guarantee that it will not impact your computer. It operates in User Mode, which reduces the likelihood of causing system instability, such as the Blue Screen of Death. However, exercise caution when using this software.
-
-## Acknowledgements
-
-Shoutout to **Roshkins** for the original repo:
-https://github.com/roshkins/IddSampleDriver
-
-Shoutout to **Baloukj** for the 8-bit / 10-bit support. (Also, first to push the new Microsoft Driver public!)
-https://github.com/baloukj/IddSampleDriver
-
-Shoutout to **Anakngtokwa** for assisting with finding driver sources.
-
-**Microsoft** Indirect Display Driver/Sample (Driver code): 
-https://github.com/microsoft/Windows-driver-samples/tree/master/video/IndirectDisplay
-
-Thanks to **AKATrevorJay** https://github.com/akatrevorjay/edid-generator for the hi-res EDID.
-
-Shoutout to **zjoasan** and **Bud** for the helper scripts and build support!
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=itsmikethetech/Virtual-Display-Driver&type=Date)](https://star-history.com/#itsmikethetech/Virtual-Display-Driver&Date)
-
