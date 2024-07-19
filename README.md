@@ -21,7 +21,7 @@ This project is based on the "Virtual Display Driver" project and tries to impro
 
 > This project uses the official Windows Indirect Display Driver combined with the IddCx class extension driver.
 
-This project adds an eays to follow setup wizard and installer to install your Virtual Display. The setup wizard also lets you specify how many displays do you want to add to your system without having to change any config file yourself.
+This project adds an easy to follow setup wizard and installer to install your Virtual Display. The setup wizard also lets you specify how many displays you want to add to your system without having to change any config file yourself.
   
 I hope you enjoy this project and if you do i would appreciate a star rating :-)
 
