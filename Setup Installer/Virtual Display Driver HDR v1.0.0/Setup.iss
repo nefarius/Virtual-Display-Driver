@@ -1,6 +1,7 @@
 #define MyAppName "Virtual Display Driver HDR"
 #define MyAppVersion "1.0.0"
 #define MyAppURL "https://github.com/timminator/Virtual-Display-Driver"
+#define InstallPath "C:\IddSampleDriver"
 
 [Setup]
 SignTool=signtool $f
@@ -10,7 +11,7 @@ AppVersion={#MyAppVersion}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName=C:\IddSampleDriver
+DefaultDirName={#InstallPath}
 MinVersion=10.0.22621
 DisableDirPage=yes
 UsePreviousAppDir=yes
