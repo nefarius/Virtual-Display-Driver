@@ -38,6 +38,10 @@ I hope you enjoy this project and if you do i would appreciate a star rating :-)
 
 That's all you have to do! A Virtual Display should be added to your system!
 
+## Notes:
+
+- If you receive a Windows Defender Smartscreen prompt when executing the setup, click on "More info" and then on "Run anyway".
+
 ## Acknowledgements
 
 - Huge shootout to the project [nefcon](https://github.com/nefarius/nefcon by nefarius and his contributors.
