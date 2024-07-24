@@ -1,5 +1,5 @@
 #define MyAppName "Virtual Display Driver"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppURL "https://github.com/timminator/Virtual-Display-Driver"
 #define InstallPath "C:\IddSampleDriver"
 
